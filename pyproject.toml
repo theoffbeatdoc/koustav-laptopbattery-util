@@ -1,0 +1,26 @@
+[project]
+name = "koustav-laptopbattery-util"
+version = "1.0.0"
+description = "Windows 11 tray utility that warns when the laptop battery is too low or charged too high."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "Pillow>=10.4",
+    "pystray>=0.19.5; sys_platform == 'win32'",
+    "pywin32>=306; sys_platform == 'win32'",
+    # WinRT projections (toast notifications). Only the namespaces we use.
+    "winrt-runtime>=2.3.0; sys_platform == 'win32'",
+    "winrt-Windows.Foundation>=2.3.0; sys_platform == 'win32'",
+    "winrt-Windows.Foundation.Collections>=2.3.0; sys_platform == 'win32'",
+    "winrt-Windows.Data.Xml.Dom>=2.3.0; sys_platform == 'win32'",
+    "winrt-Windows.UI.Notifications>=2.3.0; sys_platform == 'win32'",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.10",
+]
+
+[tool.uv]
+# This is an application, not an installable library.
+package = false
